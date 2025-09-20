@@ -1,0 +1,43 @@
+import random
+
+# Example templates for product descriptions
+templates = [
+    "Introducing the {name}, a premium {category} designed to {benefit}. With features like {features}, it’s the perfect choice for {audience}.",
+    "Upgrade your lifestyle with the {name}! This {category} comes with {features}, helping you {benefit}. Ideal for {audience}.",
+    "The {name} redefines what a {category} should be. Packed with {features}, it ensures you can {benefit}. A must-have for {audience}.",
+    "Discover the {name} – a {category} built to {benefit}. Featuring {features}, it’s tailored for {audience}."
+]
+
+# Function to generate description
+def generate_description(product):
+    template = random.choice(templates)
+    return template.format(
+        name=product.get("name", "Product"),
+        category=product.get("category", "item"),
+        features=product.get("features", "great features"),
+        benefit=product.get("benefit", "make life easier"),
+        audience=product.get("audience", "everyone")
+    )
+
+# Example product data
+products = [
+    {
+        "name": "EcoSmart Bottle",
+        "category": "water bottle",
+        "features": "double-wall insulation, leak-proof design",
+        "benefit": "keep your drinks hot or cold for hours",
+        "audience": "fitness enthusiasts and travelers"
+    },
+    {
+        "name": "UltraSound Pro",
+        "category": "wireless speaker",
+        "features": "crystal-clear audio, long battery life",
+        "benefit": "enjoy music anywhere without interruptions",
+        "audience": "music lovers"
+    }
+]
+
+# Generate descriptions
+for product in products:
+    print("-" * 60)
+    print(generate_description(product))
